@@ -39,14 +39,30 @@
             <div class="Anytime">Anytime</div>
         </div>
     </div>
-        <div></div>
+        <div class="popupForm">
+                <input type="text" placeholder="title" name="title">
+                <input type="date" name="dueDate" >
+                <div class="priority"> priority 
+                     <input type="radio" name="priority" id="urgent" value="urgent" >
+                             <label for="urgent">Urgent</label>
+           
+                     <input type="radio" name="priority" id="important" value="important" >
+                             <label for="important">Important</label>
+            
+                     <input type="radio" name="priority" id="ignorable" value="ignorable" >
+                             <label for="ignorable">Ignorable</label>
+                  </div> 
+                   <div>
+                       label
+                   </div>
+        </div>
 
 
 
 
     <button type="button" class="addTaskBtn">Add task</button>
 
-    <footer>" © 2022 Restaurant-page.All rights reserved | By Dr.Tech"</footer>
+    <footer> © 2022 Restaurant-page.All rights reserved | By Dr.Tech</footer>
     <script src="main.js"></script>
 </body>
 </html>
