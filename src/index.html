@@ -16,51 +16,92 @@
         </div>
         <div>Calender</div>
     </div>
+    <div class="content">
+         <div class="sideSection">
 
-    <div class="sideSection">
+                <div class="inboxContainer">
+             <img src="" alt="">
+             <div class="Inbox">Inbox</div>
+            </div>
 
-        <div class="inboxContainer">
-            <img src="" alt="">
-            <div class="Inbox">Inbox</div>
-        </div>
-
-        <div class="todayContainer">
+            <div class="todayContainer">
             <img src="" alt="">
             <div class="today">Today</div>
-        </div>
+            </div>
 
-        <div class="weekContainer">
+            <div class="weekContainer">
             <img src="" alt="">
             <div class="week">This week</div>
-        </div>
+         </div>
 
-        <div class="anytimeContainer">
+             <div class="anytimeContainer">
             <img src="" alt="">
             <div class="Anytime">Anytime</div>
-        </div>
+             </div>
+
+             <div class="notes">
+                 <img src="" alt="">
+                 <div >Notes</div>
+             </div>
+         </div >
+
+        <div class="display">
+            <div class="popupContainer">
+                <div class="popupFormHeader">  
+                     <h4 class="popupFormTitle">Create new task</h4>
+                     <div class="closeForm" ></div>
+                </div>
+                
+                <form action="" id="form"> 
+                        <div class="titleSection">
+                            <div>Title :</div>
+                            <input type="text" placeholder="title" name="title" id="title" required>
+                        </div>
+                        <div class="descriptionSection">
+                            <p>Description :</p>
+                            <textarea name="formDescription" id="formDescription" cols="30" rows="3" placeholder="description"></textarea><br>
+                        </div>  
+                    
+                        <div class="dueDateSection"> 
+                            <p> Due date :
+                            <span> <input type="date" name="dueDate" id="dueDate"></p>
+                        </div>
+                        <div class="prioritySection">
+                            <p> Priority :
+                                <span> <select name="priority" id="priority">
+                                    <option value="low">Low</option>
+                                    <option value="medium" selected>medium</option>
+                                    <option value="high">High</option>
+                                </select></span>
+                            </p>
+                        
+                            <p> Type : 
+                                <span><select name="type" id="type">
+                                    <option value="todo">To Do</option>
+                                    <option value="note">Note</option>
+                                </select> </span>
+                            </p>
+                        </div>  
+                </form>      
+                      
+                   
+                <div class="formBtns"> 
+                    <button type="button" class="closeFormBtn">Close</button>
+                    <button  type="button" class="addBtn" for="form">Add</button>
+                </div>
+            </div>
+
+
+        
+            <button type="button" class="addTaskBtn">Add task</button>
+
+            <div class="cardContainer"></div>
+        </div>  
     </div>
-        <div class="popupForm">
-                <input type="text" placeholder="title" name="title">
-                <input type="date" name="dueDate" >
-                <div class="priority"> priority 
-                     <input type="radio" name="priority" id="urgent" value="urgent" >
-                             <label for="urgent">Urgent</label>
-           
-                     <input type="radio" name="priority" id="important" value="important" >
-                             <label for="important">Important</label>
-            
-                     <input type="radio" name="priority" id="ignorable" value="ignorable" >
-                             <label for="ignorable">Ignorable</label>
-                  </div> 
-                   <div>
-                       label
-                   </div>
-        </div>
 
+    
+    
 
-
-
-    <button type="button" class="addTaskBtn">Add task</button>
 
     <footer> © 2022 Restaurant-page.All rights reserved | By Dr.Tech</footer>
     <script src="main.js"></script>
