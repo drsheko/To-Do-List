@@ -17,11 +17,8 @@ function getInputValue(){
     let priority = document.getElementById('priority')
     let selectedPriority = priority.value
     let newTask =  task(title,description,dueDate,selectedPriority,selectedType)
-    addTask(newTask)
-    
-    
+    addTask(newTask) 
   }
-
 
   function addTask(newTask){
       tasksArray.push(newTask)
@@ -87,7 +84,8 @@ function getInputValue(){
          else card.removeChild(midLine)
         }
         chooseNote()
-        alert(tasksArray.length)
+        
+        saveTasksArray()
     return {card,remove,cardComplete,midLine}
 
   }
@@ -191,11 +189,14 @@ let cardContainer =document.querySelector('.cardContainer')
 const notes = document.querySelector(".notes")
 notes.addEventListener("click",displayNotes)
 
-localStorage.StoredCardContainer = cardContainer
- cardContainer = localStorage.getItem(storedCardContainer)
-tasksArray.onchange = populateStorage()
-function populateStorage(){
-    
+
+
+
+
+var savedTasksArray= JSON.parse(localStorage.getItem("tasksArray"))|| []
+
+function saveTasksArray(){
+     savedTasksArray.push(tasksArray[tasksArray.length-1])
+   localStorage.setItem("tasksArray" , JSON.stringify(savedTasksArray))
+   
 }
-localStorage.storedWindow=window
-localStorage.get("storedWindow")
