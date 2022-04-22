@@ -25,7 +25,7 @@ function getInputValue(){
       return  tasksArray
   }
 
-  function createTaskCard(){
+  function createTaskCard(arr,index){
       
       let card = document.createElement('div')
       card.className="card"
@@ -38,21 +38,21 @@ function getInputValue(){
     cardComplete.addEventListener('click',markCompletedTask)
 
       let cardTitle = document.createElement('h6')
-      cardTitle.textContent+=tasksArray[tasksArray.length-1].title
+      cardTitle.textContent+=arr[index].title
       cardTitle.className= "cardTitle"
        card.appendChild(cardTitle)
 
       let cardDescription = document.createElement('p')
-      cardDescription.textContent+=tasksArray[tasksArray.length-1].description 
+      cardDescription.textContent+=arr[index].description 
       card.appendChild(cardDescription)
 
       let cardDate = document.createElement('h6')
-      cardDate.textContent+=tasksArray[tasksArray.length-1].dueDate
+      cardDate.textContent+=arr[index].dueDate
       cardDate.className="cardDate"
       card.appendChild(cardDate)
       
       
-      checkPriority()
+      checkPriority(arr,index)
       card.style.borderColor = cardBorderColor;
 
 
@@ -72,10 +72,10 @@ function getInputValue(){
       card.appendChild(remove)
       remove.addEventListener("click",removeCard)
 
-        let midLine= document.createElement("div")
-        midLine.className="midLine"
+      let midLine= document.createElement("div")
+      midLine.className="midLine"
         //card.appendChild(midLine)
-        midLine.style.visibility=cardMidLineVisibility
+        
         function markCompletedTask(){
             
           if(this.checked){card.appendChild(midLine)}
@@ -83,7 +83,7 @@ function getInputValue(){
          // else{return cardMidLineVisibility="hidden"}
          else card.removeChild(midLine)
         }
-        chooseNote()
+        
         
         saveTasksArray()
     return {card,remove,cardComplete,midLine}
@@ -94,8 +94,8 @@ function getInputValue(){
   function displayCards(){
     getInputValue()
       
-      createTaskCard()
-      checkPriority()
+      createTaskCard(tasksArray,tasksArray.length-1)
+      
   }
 
 
@@ -108,9 +108,9 @@ function getInputValue(){
       popupForm.style.visibility= "hidden";
   }
  
-  function checkPriority(){
-      if(tasksArray[tasksArray.length-1].priority ==="low"){cardBorderColor="green"}
-      else if(tasksArray[tasksArray.length-1].priority==="medium"){cardBorderColor="orange"}
+  function checkPriority(arr,index){
+      if(arr[index].priority ==="low"){cardBorderColor="green"}
+      else if(arr[index].priority==="medium"){cardBorderColor="orange"}
       else{ cardBorderColor="red"}
       
       return  cardBorderColor  
@@ -200,3 +200,28 @@ function saveTasksArray(){
    localStorage.setItem("tasksArray" , JSON.stringify(savedTasksArray))
    
 }
+
+
+
+function displaySaved(){
+    if(savedTasksArray.length>0){
+      for (let i=0 ; i<savedTasksArray.length;i++){
+          createTaskCard(savedTasksArray,i)
+      }
+    }
+ }
+
+ window.addEventListener("load",displaySaved)
+ /*var savedTasksArray= JSON.parse(localStorage.getItem("tasksArray"))|| []
+
+function saveTasksArray(){
+     savedTasksArray.push(tasksArray[tasksArray.length-1])
+   localStorage.setItem("tasksArray" , JSON.stringify(savedTasksArray))
+   for(let i=0 ; i<savedTasksArray.length;i++){
+       if(savedTasksArray[i]===null){
+           savedTasksArray.splice(i,1)
+           localStorage.setItem("tasksArray",JSON.stringify(savedTasksArray))
+       }
+   }
+   
+}*/
