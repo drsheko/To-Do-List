@@ -190,6 +190,11 @@ input{
     height: 1px;
     border-top:1px solid black;
 }
+
+.hidden{
+    position:absolute;
+    visibility: hidden;
+}
 .card:hover{
     box-shadow: 8px 5px 8px 5px gray;
 }
@@ -230,12 +235,18 @@ input{
 
 #lowPriority{
     border-color: green;
+    color:green;
+    background-color: white;
 }
 #mediumPriority{
     border-color: orange;
+    color:orange;
+    background-color: white;
 }
 #highPriority{
     border-color: red;
+    color:red;
+    background-color: white;
 }
 
 

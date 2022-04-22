@@ -74,19 +74,22 @@ function getInputValue(){
 
       let midLine= document.createElement("div")
       midLine.className="midLine"
-        //card.appendChild(midLine)
-        
+       
         function markCompletedTask(){
             
           if(this.checked){card.appendChild(midLine)}
-          //{return cardMidLineVisibility="visible"}
-         // else{return cardMidLineVisibility="hidden"}
+          
          else card.removeChild(midLine)
         }
+
+        cleanStorage()
+        let cardIndex = document.createElement("div")
+        cardIndex.className="hidden"
+        cardIndex.textContent=savedTasksArray.length
         
-        
+        card.appendChild(cardIndex) 
         saveTasksArray()
-    return {card,remove,cardComplete,midLine}
+   
 
   }
 
@@ -101,6 +104,7 @@ function getInputValue(){
 
   function makeFormVisible(){
       popupForm.style.visibility = "visible";
+      
 
   }
 
@@ -118,6 +122,10 @@ function getInputValue(){
 
   function removeCard(){
       this.parentElement.remove()
+     let removedIndex = this.parentElement.children[6].textContent
+    
+     savedTasksArray.splice(removedIndex,1)
+     localStorage.setItem("tasksArray",JSON.stringify(savedTasksArray))
   }
 
 
@@ -200,28 +208,25 @@ function saveTasksArray(){
    localStorage.setItem("tasksArray" , JSON.stringify(savedTasksArray))
    
 }
-
-
+function cleanStorage(){
+    for (let i=0 ; i<savedTasksArray.length;i++){
+        if(savedTasksArray[i] == null){
+            savedTasksArray.splice(i,1)
+            localStorage.setItem("tasksArray",JSON.stringify(savedTasksArray))
+        }
+}
+}
 
 function displaySaved(){
+    cleanStorage()
     if(savedTasksArray.length>0){
       for (let i=0 ; i<savedTasksArray.length;i++){
+          if(savedTasksArray[i] != null){
           createTaskCard(savedTasksArray,i)
+          }
       }
     }
  }
 
  window.addEventListener("load",displaySaved)
- /*var savedTasksArray= JSON.parse(localStorage.getItem("tasksArray"))|| []
 
-function saveTasksArray(){
-     savedTasksArray.push(tasksArray[tasksArray.length-1])
-   localStorage.setItem("tasksArray" , JSON.stringify(savedTasksArray))
-   for(let i=0 ; i<savedTasksArray.length;i++){
-       if(savedTasksArray[i]===null){
-           savedTasksArray.splice(i,1)
-           localStorage.setItem("tasksArray",JSON.stringify(savedTasksArray))
-       }
-   }
-   
-}*/
