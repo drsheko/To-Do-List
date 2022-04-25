@@ -9,12 +9,9 @@
 </head>
 <body>
     <div class=" header">
-        <button type="button" class="headerMenuBtn">btn</button>
-        <button type="button" class="headerHomeBtn">home</button>
         <div class="headerTitle">
             <h3 class="title"> To-Do List</h3>
         </div>
-        <div>Calender</div>
     </div>
     <div class="content">
          <div class="sideSection">
@@ -46,6 +43,7 @@
          </div >
 
         <div class="display">
+            <div class="noteContainer"></div>
             <div class="popupContainer">
                 <div class="popupFormHeader">  
                      <h4 class="popupFormTitle">Create new task</h4>
@@ -90,12 +88,34 @@
                     <button  type="submit" class="addBtn" >Add</button>
                 </div>
             </div>
+            <div class="popupContainer2">
+                <div class="popupFormHeader2">  
+                     <h4 class="popupFormTitle2">Create new note</h4>
+                     <div class="closeForm2" ></div>
+                </div>
+                <form action="" id="form2"> 
+                     <div class="titleSection2">
+                         <div>Title :</div>
+                         <input type="text" placeholder="title" name="title" id="title2" required>
+                    </div>
+                    <div class="descriptionSection2">
+                         <p>Description :</p>
+                         <textarea name="formDescription" id="formDescription2" cols="30" rows="3" placeholder="description"></textarea><br>
+                    </div>  
+                    <div class="formBtns2"> 
+                         <button type="button" class="closeFormBtn2">Close</button>
+                         <button  type="submit" class="addBtn2" >Add</button>
+                    </div>
+                </form>
+            </div>  
 
 
-        
+            <button type="button" class="addNoteBtn">Add Note</button>
+
             <button type="button" class="addTaskBtn">Add task</button>
 
             <div class="cardContainer"></div>
+            
         </div>  
     </div>
 

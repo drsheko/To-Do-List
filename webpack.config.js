@@ -1,43 +1,44 @@
-const path = require("path")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
-const {CleanWebpackPlugin} = require("clean-webpack-plugin")
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 module.exports = {
-    mode : "development",
-    plugins: [
+  mode: 'development',
+  plugins: [
 
-        new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin({
-          attributes: {
-            id: "target",
-            "data-target": "example",
-          },
-        }),
-        new HtmlWebpackPlugin({
-            template:"./src/index.html"
-        }),
-      ],
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      attributes: {
+        id: 'target',
+        'data-target': 'example',
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
+  ],
 
-output : {
-        path : path.resolve(__dirname , "dist")
-} ,     
-devtool:"source-map",
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+  },
+  devtool: 'source-map',
 
-devServer :{
-        static: "./dist",
-        hot: true , 
-    },
+  devServer: {
+    static: './dist',
+    hot: true,
+  },
 
- module : {
-     rules :[
-         {
-             test : /\.(png|jpe?g|gif|svg)/i,
-             type  : "asset/resource",
-         },
-         {
-             test : /\.css$/i,
-             use :[MiniCssExtractPlugin.loader , "css-loader"],
-         },
-     ]
- }   
-}
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpe?g|gif|svg)/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+    ],
+  },
+};

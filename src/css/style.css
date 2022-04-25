@@ -4,32 +4,25 @@ body{
     height: 100vh;
     padding:0;
     margin:0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: grid;
+    grid-template-rows: 60px auto 40px;
     
 }
 
 .header{
     margin-top: 0;
+    margin-right: 0;
     padding:5px;
-    max-height: 50px;
+    text-align: center;
+    width:100%;
  background-color: rgba(0, 0, 0, 0.377);
- display:grid;
- grid-template-columns: 1fr 1fr 20fr 1fr;
+ 
 }
 
 .headerTitle{
     text-align: center;
     font-size: 20px;
 }
-
-
-
-
-
-
-
 
 .content{
     height: 100%;
@@ -60,7 +53,22 @@ body{
     display: block;
     
 }
-.popupFormHeader{
+.popupContainer2{
+    visibility:hidden;
+    opacity: 1;
+    position:absolute ;
+    box-sizing: border-box;
+    
+    top:100px;
+    right:100px;
+    background-color: beige;
+    
+    border: 1px solid gray;
+    border-radius: 6px;
+    display: block;
+    
+}
+.popupFormHeader , .popupFormHeader2{
     grid-area:header;
     box-sizing: border-box;
     width: 100%;
@@ -74,7 +82,7 @@ body{
     margin:0;
 }
 
-.popupFormTitle{
+.popupFormTitle ,.popupFormTitle2 {
     text-align: left;
     margin: 3px 0px;
     
@@ -94,6 +102,12 @@ body{
     "description priority"
     ;
     gap:2px 20px;
+}
+#form2{
+    display: flex;
+    flex-direction: column;
+    padding:5px 25px;
+    
 }
 
 .titleSection{
@@ -115,14 +129,14 @@ body{
 }
 
 
-.formBtns{
+.formBtns , .formBtns2{
     grid-area: buttons;
     text-align: center;
     margin-bottom: 10px;
 
 
 }
-.closeForm{
+.closeForm ,.closeForm2{
     width: 25px;
     height: 25px;
     background-image: url(/src/img/close.pneg);
@@ -131,11 +145,6 @@ body{
 .closeForm:hover{
     background-color: lightgray;
 }
-
-
-
-
-
 
 
 .closeFormBtn , .addBtn{
@@ -168,6 +177,24 @@ input{
     display:flex;
     flex-direction: row;
     justify-content: space-between;
+}
+#noteCardContainer{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.noteCard{
+    border:1px solid gray;
+    margin:3px 5px;
+    width:40%;
+    height: 100px;
+    display:flex;
+    flex-direction: row;
+}
+.noteCardTitle{
+    text-align: center;
+    margin-bottom:3px;
+    c
 }
 
 .cardComplete{
@@ -248,133 +275,6 @@ input{
     color:red;
     background-color: white;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .addTaskBtn{
